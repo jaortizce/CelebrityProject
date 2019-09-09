@@ -16,7 +16,11 @@ will be poped from the stack. The process continues till there is just on elemen
 
 HOW TO SEE THE RESULTS:
 
-Run the CelebrityProject project, the celebrity will be generated randomly
+Compile and Run the CelebrityProject maven project, it contains two mudules inside (console and core), the celebrity will be generated randomly
+
+The Console module is just a driver module that contains app inizialitation
+The core mocule contains all the logic and handles the messages that are writen to the console
+
 The matrix is printed on the console
 The algorithm will search the celebrity
 If the celebrity is found then a message will confirm the result with the ID that belongs to that person, also the value of 
