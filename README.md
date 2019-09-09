@@ -1,4 +1,4 @@
-This is an spring 5 application JDK 11 is being used. 
+This is a spring 5 application JDK 11 is being used. 
 Maven is needed in order to compile it
 
 There is a game.properties file in the path config/game.properties 
