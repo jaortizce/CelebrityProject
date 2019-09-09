@@ -1,7 +1,10 @@
-academy/learnprogramming/NumberGeneratorImpl.class
-academy/learnprogramming/MessageGeneratorImpl.class
-academy/learnprogramming/Game.class
-academy/learnprogramming/GameImpl.class
-academy/learnprogramming/MessageGenerator.class
-academy/learnprogramming/NumberGenerator.class
-academy/learnprogramming/AppConfig.class
+learnCelebrity/finalProject/NumberGeneratorImpl.class
+learnCelebrity/finalProject/MinNumber.class
+learnCelebrity/finalProject/NumberGenerator.class
+learnCelebrity/finalProject/config/GameConfig.class
+learnCelebrity/finalProject/MaxNumber.class
+learnCelebrity/finalProject/Game.class
+learnCelebrity/finalProject/MessageGeneratorImpl.class
+learnCelebrity/finalProject/GuessCount.class
+learnCelebrity/finalProject/MessageGenerator.class
+learnCelebrity/finalProject/GameImpl.class

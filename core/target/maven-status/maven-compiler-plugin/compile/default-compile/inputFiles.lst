@@ -1,7 +1,10 @@
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/AppConfig.java
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/NumberGenerator.java
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/Game.java
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/MessageGeneratorImpl.java
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/GameImpl.java
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/MessageGenerator.java
-/home/juanalejandro.ortiz/IdeaProjects/guess-the-number-game/core/src/main/java/academy/learnprogramming/NumberGeneratorImpl.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/MinNumber.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/NumberGeneratorImpl.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/NumberGenerator.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/config/GameConfig.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/MaxNumber.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/MessageGenerator.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/Game.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/GameImpl.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/MessageGeneratorImpl.java
+/home/juanalejandro.ortiz/IdeaProjects/CelebrityProject/core/src/main/java/learnCelebrity/finalProject/GuessCount.java
