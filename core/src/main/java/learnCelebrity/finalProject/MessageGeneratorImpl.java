@@ -22,34 +22,12 @@ public class MessageGeneratorImpl implements MessageGenerator {
     // == init ==
     @PostConstruct
     public void init() {
-        log.info("the value of game is {}", game);
+        log.info("The value of the celebrity prior to the game is {}", (game.getCelebrityNumber() + 1));
     }
 
     @Override
     public String getMainMessage() {
-        return "Number is between " + game.getSmallest() + " and " + game.getBiggest() + ". Can you guess it?";
+        return "The celebrity number after matrix building is " + game.validateCelebrity();
     }
 
-    @Override
-    public String getResultMessage() {
-
-        if(game.isGameWon()){
-            return "You guessed it! The number was " + game.getNumber();
-        } else if(game.isGameLost()){
-            return "You lost. The number was " + game.getNumber();
-        } else if(!game.isValidNumberRange()){
-            return "Invalid number range!";
-        } else if(game.getRemainingGuesses() == game.getGuessCount()) {
-            return "What is your first guess?";
-        } else {
-            String direction = "Lower";
-
-            if (game.getGuess() < game.getNumber()){
-                direction = "Higher";
-            }
-
-            return direction + "! You have " + game.getRemainingGuesses() + " guesses left";
-        }
-
-    }
 }

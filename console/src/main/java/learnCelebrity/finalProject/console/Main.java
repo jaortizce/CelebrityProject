@@ -14,7 +14,6 @@ public class Main {
     public static void main(String[] args) {
         log.info("Find de celebrity !!!");
 
-        // create context (container)
         ConfigurableApplicationContext context
                 = new AnnotationConfigApplicationContext(GameConfig.class);
 

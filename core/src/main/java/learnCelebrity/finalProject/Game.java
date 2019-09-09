@@ -2,27 +2,18 @@ package learnCelebrity.finalProject;
 
 public interface Game {
 
-    int getNumber();
-
-    int getGuess();
-
-    void setGuess(int guess);
-
-    int getSmallest();
+    int getCelebrityNumber();
 
     int getBiggest();
 
-    int getRemainingGuesses();
-
-    int getGuessCount();
-
     void reset();
 
-    void check();
+    boolean knows(int a, int b);
 
-    boolean isValidNumberRange();
+    int findCelebrity(int n);
 
-    boolean isGameWon();
+    String validateCelebrity();
 
-    boolean isGameLost();
+    void printMatrix(int mat [][]);
+
 }

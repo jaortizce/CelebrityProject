@@ -13,20 +13,18 @@ public class NumberGeneratorImpl implements NumberGenerator {
 
     private final int maxNumber;
 
-    private final int minNumber;
-
     // == constructors ==
 
     @Autowired
-    public NumberGeneratorImpl(@MaxNumber int maxNumber, @MinNumber int minNumber) {
+    public NumberGeneratorImpl(@MaxNumber int maxNumber) {
         this.maxNumber = maxNumber;
-        this.minNumber = minNumber;
     }
 
     // == public methods ==
     @Override
     public int next() {
-        return random.nextInt(maxNumber - minNumber) + minNumber;
+        return random.nextInt(maxNumber);
+
     }
 
     @Override
@@ -34,9 +32,27 @@ public class NumberGeneratorImpl implements NumberGenerator {
         return maxNumber;
     }
 
+
     @Override
-    public int getMinNumber() {
-        return minNumber;
+    public int[][] getMatrix(int numberOfPeople, int celebrityIndex) {
+
+        int [][] matrixBuild = new int [numberOfPeople][numberOfPeople];
+
+        for (int i = 0; i < numberOfPeople; i++){
+            for (int j = 0; j < numberOfPeople; j++){
+                if (j != celebrityIndex){
+                    matrixBuild[i][j] = 0;
+                }else if (j == celebrityIndex){
+                    if (i != celebrityIndex){
+                        matrixBuild[i][j] = 1;
+                    }else if (i == celebrityIndex){
+                        matrixBuild[i][j] = 0;
+                    }
+                }
+            }
+        }
+        return matrixBuild;
     }
+
 
 }

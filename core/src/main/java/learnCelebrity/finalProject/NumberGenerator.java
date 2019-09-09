@@ -4,6 +4,6 @@ public interface NumberGenerator {
 
     int next();
     int getMaxNumber();
-    int getMinNumber();
+    int [][] getMatrix(int numberOfPeople, int celebrityIndex);
 
 }

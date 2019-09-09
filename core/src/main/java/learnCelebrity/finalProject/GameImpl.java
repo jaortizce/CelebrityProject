@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.Stack;
 
 @Component
 public class GameImpl implements Game {
@@ -17,57 +18,46 @@ public class GameImpl implements Game {
     // == fields ==
 
     private final NumberGenerator numberGenerator;
-
-    private final int guessCount;
+    private int[][] matrix = new int[1000][1000];
 
     @Autowired
-    public GameImpl(NumberGenerator numberGenerator, @GuessCount int guessCount) {
+    public GameImpl(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
-        this.guessCount = guessCount;
     }
 
-    private int number;
-    private int guess;
-    private int smallest;
+    private int celebrityNumber;
     private int biggest;
-    private int remainingGuesses;
-    private boolean validNumberRange = true;
 
     // == init ==
     @PostConstruct
     @Override
     public void reset() {
-        smallest = numberGenerator.getMinNumber();
-        guess = numberGenerator.getMinNumber();
-        remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
-        number = numberGenerator.next();
-        log.debug("the number is {}", number);
+        celebrityNumber = numberGenerator.next();
+        this.matrix = numberGenerator.getMatrix(biggest,celebrityNumber);
+        log.debug("The number of people is {}", biggest);
+        log.debug("The number of the celebrity is {}", celebrityNumber + 1);
+        printMatrix(this.matrix);
     }
 
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         log.info("in Game preDestroy()");
     }
 
     @Override
-    public int getNumber() {
-        return number;
+    public void printMatrix(int[][] mat) {
+        for (int i = 0; i < biggest; i++){
+            for (int j = 0; j < biggest; j++){
+                System.out.print(this.matrix[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
     }
 
     @Override
-    public int getGuess() {
-        return guess;
-    }
-
-    @Override
-    public void setGuess(int guess) {
-        this.guess = guess;
-    }
-
-    @Override
-    public int getSmallest() {
-        return smallest;
+    public int getCelebrityNumber() {
+        return celebrityNumber;
     }
 
     @Override
@@ -75,51 +65,58 @@ public class GameImpl implements Game {
         return biggest;
     }
 
-    @Override
-    public int getRemainingGuesses() {
-        return remainingGuesses;
+
+    // True if firstNumber knows secondNumber
+    public boolean knows(int firstNumber, int secondNumber) {
+        boolean res = (matrix[firstNumber][secondNumber] == 1) ? true : false;
+        return res;
     }
 
-    @Override
-    public int getGuessCount() {
-        return guessCount;
-    }
+    // Returns -1 if celebrity
+    // is not present. If present,
+    // returns id (value from 0 to n-1).
+    public int findCelebrity(int n) {
+        Stack<Integer> peopleStack = new Stack<>();
+        int celebrity;
 
-    @Override
-    public void check() {
-
-        checkValidNumberRange();
-
-        if(validNumberRange) {
-            if(guess > number) {
-                biggest = guess -1;
-            }
-
-            if(guess < number) {
-                smallest = guess + 1;
-            }
+        // Step 1 :Push everybody onto stack
+        for (int i = 0; i < n; i++) {
+            peopleStack.push(i);
         }
 
-        remainingGuesses--;
+        while (peopleStack.size() > 1) {
+            // Step 2 :Pop off top two persons from the stack, discard one person based on return status of knows(firstNumber, secondNumber).
+            int firstNumber = peopleStack.pop();
+            int secondNumber = peopleStack.pop();
+
+            // Step 3 : Push the remained person onto stack.
+            if (knows(firstNumber, secondNumber)) {
+                peopleStack.push(secondNumber);
+            } else
+                peopleStack.push(firstNumber);
+        }
+
+        celebrity = peopleStack.pop();
+
+        // Step 5 : Validate if the last person is celebrity or not
+        for (int i = 0; i < n; i++) {
+
+            if (i != celebrity && (knows(celebrity, i) || !knows(i, celebrity))) {
+                return -1;
+            }
+        }
+        return celebrity;
     }
 
-    @Override
-    public boolean isValidNumberRange() {
-        return validNumberRange;
+    public String validateCelebrity() {
+
+        int result = findCelebrity(this.biggest);
+        if (result == -1) {   //always -1 because if 1 is the response from findCelebrity the case of 1 will not be found, and indeed it could be found
+            return "No Celebrity found";
+        } else {
+            return "Celebrity ID " + (result + 1);
+        }
     }
 
-    @Override
-    public boolean isGameWon() {
-        return guess == number;
-    }
 
-    @Override
-    public boolean isGameLost() {
-        return !isGameWon() && remainingGuesses <= 0;
-    }
-
-    // == private methods ==
-    private void checkValidNumberRange() {
-        validNumberRange = (guess >= smallest) && (guess <= biggest);
-    }
 }

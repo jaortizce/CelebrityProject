@@ -1,8 +1,6 @@
 package learnCelebrity.finalProject.config;
 
-import learnCelebrity.finalProject.GuessCount;
 import learnCelebrity.finalProject.MaxNumber;
-import learnCelebrity.finalProject.MinNumber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,8 +19,6 @@ public class GameConfig {
     @Value("${game.minNumber:2}")
     private int minNumber;
 
-    @Value("${game.guessCount:5}")
-    private int guessCount;
 
     // == bean methods ==
     @Bean
@@ -31,15 +27,4 @@ public class GameConfig {
         return maxNumber;
     }
 
-    @Bean
-    @MinNumber
-    public int minNumber(){
-        return minNumber;
-    }
-
-    @Bean
-    @GuessCount
-    public int guessCount(){
-        return guessCount;
-    }
 }
