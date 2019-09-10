@@ -16,11 +16,11 @@ will be poped from the stack. The process continues till there is just on elemen
 
 HOW TO SEE THE RESULTS:
 
-Compile and Run the CelebrityProject maven project: 
+Compile and Run via command line for ubuntu the CelebrityProject maven project: 
 
 1. Open the system console
-1. Go to the root path CelebrityProject and execute the command: mvn install package
-2. In the same path execute the command: java -jar console/target/console-1.0-SNAPSHOT-jar-with-dependencies.jar
+2. Go to the root path CelebrityProject and execute the command: mvn install package
+3. In the same path execute the command: java -jar console/target/console-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 The CelebrityProject project contains two mudules inside (console and core), the celebrity will be generated randomly
 
@@ -31,6 +31,3 @@ The matrix is printed on the console
 The algorithm will search the celebrity
 If the celebrity is found then a message will confirm the result with the ID that belongs to that person, also the value of 
 that ID prior to the process is printed just for purpouse of checking the result.
-
-
-
