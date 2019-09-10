@@ -18,6 +18,10 @@ HOW TO SEE THE RESULTS:
 
 Compile and Run via command line for ubuntu the CelebrityProject maven project: 
 
+Befoye all, Maven should be installed in your system. In case you don't have maven installed check this: (https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-18-04/)
+
+Once Maven is installed, do the following:
+
 1. Open the system console
 2. Go to the root path CelebrityProject and execute the command: mvn install package
 3. In the same path execute the command: java -jar console/target/console-1.0-SNAPSHOT-jar-with-dependencies.jar
