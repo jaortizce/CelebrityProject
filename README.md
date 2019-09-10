@@ -16,7 +16,13 @@ will be poped from the stack. The process continues till there is just on elemen
 
 HOW TO SEE THE RESULTS:
 
-Compile and Run the CelebrityProject maven project, it contains two mudules inside (console and core), the celebrity will be generated randomly
+Compile and Run the CelebrityProject maven project: 
+
+1. Open the system console
+1. Go to the root path CelebrityProject and execute the command: mvn install package
+2. In the same path execute the command: java -jar console/target/console-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+The CelebrityProject project contains two mudules inside (console and core), the celebrity will be generated randomly
 
 The Console module is just a driver module that contains app inizialitation
 The core mocule contains all the logic and handles the messages that are writen to the console
