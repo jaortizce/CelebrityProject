@@ -12,7 +12,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        log.info("Find de celebrity !!!");
+        log.info("Find the celebrity !!!");
 
         ConfigurableApplicationContext context
                 = new AnnotationConfigApplicationContext(GameConfig.class);
